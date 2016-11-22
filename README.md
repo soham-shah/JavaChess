@@ -10,3 +10,8 @@ This is a program that will be used by users in order to track which books they 
 -	Girish Ramkumar
 -	Sam Taylor
 
+#Setup
+- The code is a basic maven project.
+- Maven handles all the dependancies for the project so all that needs to be done is mvn build clean and it will create a jar of the project code with all the dependancies. This way we can code with multiple people and insure that we have the same dependancies. 
+
+
