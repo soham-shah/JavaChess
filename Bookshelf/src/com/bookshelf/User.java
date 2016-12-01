@@ -1,8 +1,9 @@
 package com.bookshelf;
+import java.util.*;
 
 public class User implements Person{
 	public int booksRead;
-	public Book[] bookshelf;
+	public List<Book> bookshelf = new ArrayList<Book>();
 	
 	public void addBook(String title){
 		
@@ -25,7 +26,7 @@ public class User implements Person{
 	}
 	
 	private void setPassword(){
-		
+
 	}
 	
 }
