@@ -6,10 +6,6 @@ public class Admin extends Person{
 		this.password = password;
 	}
 	
-	public void resetPassword(String username){
-		
-	}
-	
 	public void displayUsers(){
 		
 	}

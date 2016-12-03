@@ -18,8 +18,8 @@ public class User extends Person{
 		
 	}
 	
-	private void changePassword(){
-
+	private void changePassword(String newPassword){
+		this.password = newPassword;
 	}
 	
 }
