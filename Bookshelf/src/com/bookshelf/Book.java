@@ -8,6 +8,10 @@ public abstract class Book implements Comparable <Book>{
 	private String genre;
 	private int isbn;
 	
+	public Book(String author, String title){
+		this.author = author;
+		this.title = title;
+	}
 	public void addRating(String title, int rating){
 		
 	}
