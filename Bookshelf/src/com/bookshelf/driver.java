@@ -19,9 +19,9 @@ public class driver {
 		Session session = sessionFactory.openSession();
 		session.beginTransaction();
 
-		for (Object media : library){
-			session.save(media);
-			System.out.println(media);
+		for (Object book : library){
+			session.save(book);
+			System.out.println(book);
 		}
 
 		session.getTransaction().commit();

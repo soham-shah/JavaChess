@@ -10,6 +10,8 @@ public class Book implements Comparable <Book>{
 	
 	@Id
 	private String title;
+	
+	
 	private String author;
 	private Boolean read;
 	private int rating;
@@ -50,10 +52,10 @@ public class Book implements Comparable <Book>{
 	public void setTitle(String title) {
 		this.title = title;
 	}
-	public String getRating() {
+	public int getRating() {
 		return rating;
 	}
-	public void setRating(String rating) {
+	public void setRating(int rating) {
 		this.rating = rating;
 	}
 	public String getGenre() {
@@ -68,7 +70,6 @@ public class Book implements Comparable <Book>{
 	public void setIsbn(int isbn) {
 		this.isbn = isbn;
 	}
-	
     public int compareTo(Book other){
     	return title.compareTo(other.getTitle());
 	}

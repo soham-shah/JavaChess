@@ -1,6 +1,6 @@
 package com.bookshelf;
 
 public abstract class Person {
-	String username;
-	String password;
+	protected String username;
+	protected String password;
 }
