@@ -1,16 +1,28 @@
 package com.bookshelf;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import javax.persistence.Id;
+
+@Entity
+@Table(name="Books")
 public class Book implements Comparable <Book>{
-	private Boolean read;
-	private String author;
+	
+	@Id
 	private String title;
-	private String rating;
+	private String author;
+	private Boolean read;
+	private int rating;
 	private String genre;
 	private int isbn;
 	
 	public Book(String author, String title){
 		this.author = author;
 		this.title = title;
+		this.read = false;
+		this.rating = 0;
+		this.genre = "test";
+		this.isbn = 000000;
 	}
 	public void addRating(String title, int rating){
 		
