@@ -1,6 +1,6 @@
 package com.bookshelf;
 
-public abstract class Book implements Comparable <Book>{
+public class Book implements Comparable <Book>{
 	private Boolean read;
 	private String author;
 	private String title;
