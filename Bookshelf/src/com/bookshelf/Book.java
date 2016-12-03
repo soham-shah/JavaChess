@@ -10,8 +10,6 @@ public class Book implements Comparable <Book>{
 	
 	@Id
 	private String title;
-	
-	
 	private String author;
 	private Boolean read;
 	private int rating;

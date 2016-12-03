@@ -6,8 +6,8 @@ public class User extends Person{
 	public List<Book> bookshelf = new ArrayList<Book>();
 	
 	public User(String username, String password){
-		this.username = username;
-		this.password = password;
+		super.username = username;
+		super.password = password;
 	}
 	
 	public void addBook(String title){
