@@ -1,6 +1,6 @@
 package com.bookshelf;
 
-public interface Person {
+public abstract class Person {
 	String username;
 	String password;
 }

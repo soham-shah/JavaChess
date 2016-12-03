@@ -1,9 +1,14 @@
 package com.bookshelf;
 import java.util.*;
 
-public class User implements Person{
+public class User extends Person{
 	public int booksRead;
 	public List<Book> bookshelf = new ArrayList<Book>();
+	
+	public User(String username, String password){
+		this.username = username;
+		this.password = password;
+	}
 	
 	public void addBook(String title){
 		
@@ -13,19 +18,7 @@ public class User implements Person{
 		
 	}
 	
-	public void addRating(String title, int rating){
-		
-	}
-	
-	public void addComment(String title, String comment){
-		
-	}
-	
-	public void requestPasswordReset(){
-		
-	}
-	
-	private void setPassword(){
+	private void changePassword(){
 
 	}
 	

@@ -7,6 +7,14 @@ public abstract class Book implements Comparable <Book>{
 	private String rating;
 	private int isbn;
 	
+	public void addRating(String title, int rating){
+		
+	}
+	
+	public void addComment(String title, String comment){
+		
+	}
+	
 	public Boolean getRead() {
 		return read;
 	}
