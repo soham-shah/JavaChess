@@ -26,14 +26,9 @@ public class Book implements Comparable <Book>{
 		this.genre = "test";
 		this.isbn = 000000;
 	}
-	public void addRating(String title, int rating){
-		
+	public void addRating(int rating){
+		this.rating = rating;
 	}
-	
-	public void addComment(String title, String comment){
-		
-	}
-	
 	public Boolean getRead() {
 		return read;
 	}
