@@ -5,6 +5,7 @@ public abstract class Book implements Comparable <Book>{
 	private String author;
 	private String title;
 	private String rating;
+	private String genre;
 	private int isbn;
 	
 	public void addRating(String title, int rating){
@@ -38,6 +39,12 @@ public abstract class Book implements Comparable <Book>{
 	}
 	public void setRating(String rating) {
 		this.rating = rating;
+	}
+	public String getGenre() {
+		return genre;
+	}
+	public void setGenre(String genre) {
+		this.genre = genre;
 	}
 	public int getIsbn() {
 		return isbn;
