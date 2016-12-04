@@ -2,7 +2,7 @@ package com.bookshelf;
 import java.util.*;
 
 public class User extends Person{
-	public int booksRead;
+	private int booksRead;
 	public List<Book> bookshelf = new ArrayList<Book>();
 	
 	public User(String username, String password){
@@ -24,6 +24,10 @@ public class User extends Person{
 
 	public int bookCount(){
 		return bookshelf.size();
+	}
+	
+	public int getBooksRead(){
+		return booksRead;
 	}
 	
 }

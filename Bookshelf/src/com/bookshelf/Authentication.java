@@ -6,6 +6,7 @@ public class Authentication {
 
     private static ArrayList<User> users = new ArrayList<User>();
     private static ArrayList<Admin> admins = new ArrayList<Admin>();
+    public User currentUser;
 
     public Authentication(){
     	this.addUser("User", "User");
@@ -61,6 +62,7 @@ public class Authentication {
         for(int i = 0; i < users.size(); i++){
             if (users.get(i).getUsername().equals(username)){
                 if (users.get(i).getPassword().equals(password)){
+                	currentUser = getUser(username, password);
                     return 1;
                 }
             }

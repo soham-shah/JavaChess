@@ -26,6 +26,8 @@ import javax.swing.JSeparator;
 import javax.swing.JTable;
 import javax.swing.JTextPane;
 import javax.swing.JScrollPane;
+import javax.swing.border.EtchedBorder;
+import javax.swing.border.LineBorder;
 
 public class LoginScreen {
 
@@ -61,6 +63,7 @@ public class LoginScreen {
 	private JSeparator separator_2;
 	private JTable table;
 	private JScrollPane scrollPane;
+	private JLabel settingsNumBooksRead;
 
 	/**
 	 * Launch the application.
@@ -288,6 +291,11 @@ public class LoginScreen {
 		JLabel settingsBooksReadLabel = new JLabel("Number of Books Read");
 		settingsBooksReadLabel.setBounds(143, 339, 151, 16);
 		Settings.add(settingsBooksReadLabel);
+		
+		settingsNumBooksRead = new JLabel();
+		settingsNumBooksRead.setBounds(320, 339, 61, 16);
+		settingsNumBooksRead.setText(String.valueOf(auth.currentUser.getBooksRead()));
+		Settings.add(settingsNumBooksRead);
 		newUserButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String name = loginUsernameField.getText();
