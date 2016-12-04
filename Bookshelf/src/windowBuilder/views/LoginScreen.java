@@ -61,9 +61,8 @@ public class LoginScreen {
 	private JSeparator separator;
 	private JSeparator separator_1;
 	private JSeparator separator_2;
-	private JTable table;
-	private JScrollPane scrollPane;
 	private JLabel settingsNumBooksRead;
+	private JTable usertable;
 
 	/**
 	 * Launch the application.
@@ -201,13 +200,9 @@ public class LoginScreen {
 		separator_1.setBounds(65, 111, 378, 12);
 		AdminScreen.add(separator_1);
 		
-		scrollPane = new JScrollPane();
-		scrollPane.setBounds(478, 156, -445, 563);
-		AdminScreen.add(scrollPane);
-		
-		table = new JTable();
-		scrollPane.setViewportView(table);
-		table.setBackground(Color.WHITE);
+		usertable = new JTable();
+		usertable.setBounds(20, 131, 462, 586);
+		AdminScreen.add(usertable);
 		
 		Settings = new JPanel();
 		Settings.setLayout(null);
@@ -315,12 +310,16 @@ public class LoginScreen {
 				if(answer == 0){
 					JOptionPane.showMessageDialog(frame, "User not found, try again");
 				}
+				//Go to the User view
 				else if(answer == 1){
+
 					LogIn.setVisible(false);
 					UserScreen.setVisible(true);
 				}
+				//go to the admin view
 				else{
 					LogIn.setVisible(false);
+					usertable.setModel(auth.getModel());
 					AdminScreen.setVisible(true);
 				}
 			}

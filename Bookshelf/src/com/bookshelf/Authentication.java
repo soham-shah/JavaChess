@@ -1,6 +1,10 @@
 package com.bookshelf;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Vector;
+
+import javax.swing.table.DefaultTableModel;
 
 public class Authentication {
 
@@ -111,6 +115,26 @@ public class Authentication {
             }
         }
         return false;
+    }
+    
+    public DefaultTableModel getModel(){
+    	DefaultTableModel model = new DefaultTableModel();
+    	List<String> row = new ArrayList<String>();
+
+    	row.add("Username");
+    	row.add("Password");
+    	row.add("Books Read");
+    	model.addRow(row.toArray());
+    	
+    	for (int i = 0; i< users.size(); i++){
+    		row = new ArrayList<String>();
+    		User temp = users.get(i);
+    		row.add(temp.getUsername());
+    		row.add(temp.getPassword());
+    		row.add(Integer.toString(temp.getBooksRead()));
+    		model.addRow(row.toArray());
+    	}
+    	return model;    	 
     }
 
 }
