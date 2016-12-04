@@ -30,4 +30,8 @@ public class User extends Person{
 		return booksRead;
 	}
 	
+	public void addReadBook(){
+		booksRead = booksRead+1;
+	}
+	
 }

@@ -14,24 +14,26 @@ public class Book implements Comparable <Book>{
 	private Boolean read;
 	private int rating;
 	private String genre;
-	private int isbn;
+	private String isbn;
+	private String comment;
 	
-	public Book(String author, String title){
-		this.author = author;
-		this.title = title;
+	public Book(){
+		this.author = "";
+		this.title = "";
 		this.read = false;
 		this.rating = 0;
 		this.genre = "test";
-		this.isbn = 000000;
+		this.isbn = "000000";
 	}
 
-	public Book(String author, String title, boolean read, int rating, String genre, int isbn){
+	public Book(String title, String author, String genre, String isbn, boolean read, int rating, String comment){
 		this.author = author;
 		this.title = title;
 		this.read = read;
 		this.rating = rating;
 		this.genre = genre;
 		this.isbn = isbn;
+		this.comment = comment;
 	}
 
 	public Boolean getRead() {
@@ -64,10 +66,10 @@ public class Book implements Comparable <Book>{
 	public void setGenre(String genre) {
 		this.genre = genre;
 	}
-	public int getIsbn() {
+	public String getIsbn() {
 		return isbn;
 	}
-	public void setIsbn(int isbn) {
+	public void setIsbn(String isbn) {
 		this.isbn = isbn;
 	}
     public int compareTo(Book other){

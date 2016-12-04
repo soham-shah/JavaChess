@@ -6,10 +6,12 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
+import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
 import javax.swing.JTextField;
 
 import com.bookshelf.Authentication;
+import com.bookshelf.Book;
 
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
@@ -25,9 +27,13 @@ import java.awt.Color;
 import javax.swing.JSeparator;
 import javax.swing.JTable;
 import javax.swing.JTextPane;
+import javax.swing.SpinnerNumberModel;
 import javax.swing.JScrollPane;
 import javax.swing.border.EtchedBorder;
 import javax.swing.border.LineBorder;
+import javax.swing.JRadioButton;
+import javax.swing.JTextArea;
+import javax.swing.JSpinner;
 
 public class LoginScreen {
 
@@ -63,6 +69,19 @@ public class LoginScreen {
 	private JSeparator separator_2;
 	private JLabel settingsNumBooksRead;
 	private JTable usertable;
+	private JPanel AddBookScreen;
+	private JButton btnBack;
+	private JLabel lblLetsAddA;
+	private JLabel lblFillInAs;
+	private JLabel lblTitle;
+	private JLabel lblAuthor;
+	private JLabel lblGenre;
+	private JLabel lblIsbn;
+	private JLabel lblHaveYouRead;
+	private JTextField titleText;
+	private JTextField authorText;
+	private JTextField genreText;
+	private JTextField isbnText;
 
 	/**
 	 * Launch the application.
@@ -175,6 +194,16 @@ public class LoginScreen {
 		userScreenSettingsButton.setBackground(Color.WHITE);
 		userScreenSettingsButton.setBounds(6, 6, 117, 29);
 		UserScreen.add(userScreenSettingsButton);
+		
+		JButton addNewBookButton = new JButton("Add a new Book");
+		addNewBookButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				UserScreen.setVisible(false);
+				AddBookScreen.setVisible(true);
+			}
+		});
+		addNewBookButton.setBounds(191, 132, 132, 29);
+		UserScreen.add(addNewBookButton);
 		
 		AdminScreen = new JPanel();
 		frame.getContentPane().add(AdminScreen, "name_13539955094575");
@@ -291,6 +320,159 @@ public class LoginScreen {
 		settingsNumBooksRead = new JLabel();
 		settingsNumBooksRead.setBounds(320, 339, 61, 16);
 		Settings.add(settingsNumBooksRead);
+		
+		AddBookScreen = new JPanel();
+		frame.getContentPane().add(AddBookScreen, "name_6790348537154");
+		AddBookScreen.setLayout(null);
+		
+		btnBack = new JButton("Back");
+		btnBack.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				AddBookScreen.setVisible(false);
+				UserScreen.setVisible(true);
+			}
+		});
+		btnBack.setBounds(6, 6, 75, 29);
+		AddBookScreen.add(btnBack);
+		
+		lblLetsAddA = new JLabel("Lets add a book to your bookshelf!");
+		lblLetsAddA.setFont(new Font("Lucida Grande", Font.PLAIN, 25));
+		lblLetsAddA.setBounds(40, 49, 438, 61);
+		AddBookScreen.add(lblLetsAddA);
+		
+		lblFillInAs = new JLabel("Fill in as much information as you can");
+		lblFillInAs.setFont(new Font("Lucida Grande", Font.PLAIN, 20));
+		lblFillInAs.setBounds(66, 110, 373, 29);
+		AddBookScreen.add(lblFillInAs);
+		
+		lblTitle = new JLabel("Title");
+		lblTitle.setBounds(92, 175, 61, 16);
+		AddBookScreen.add(lblTitle);
+		
+		lblAuthor = new JLabel("Author");
+		lblAuthor.setBounds(92, 214, 61, 16);
+		AddBookScreen.add(lblAuthor);
+		
+		lblGenre = new JLabel("Genre");
+		lblGenre.setBounds(92, 259, 61, 16);
+		AddBookScreen.add(lblGenre);
+		
+		lblIsbn = new JLabel("ISBN");
+		lblIsbn.setBounds(92, 308, 61, 16);
+		AddBookScreen.add(lblIsbn);
+		
+		lblHaveYouRead = new JLabel("Have you read this book?");
+		lblHaveYouRead.setBounds(92, 360, 167, 16);
+		AddBookScreen.add(lblHaveYouRead);
+		
+		final JRadioButton rdbtnYes = new JRadioButton("Yes");
+		rdbtnYes.setBounds(329, 356, 61, 23);
+		
+		final JRadioButton rdbtnNo = new JRadioButton("No");
+		rdbtnNo.setBounds(268, 356, 67, 23);
+		rdbtnNo.setSelected(true);
+		
+		ButtonGroup radioBtnGroup = new ButtonGroup();
+		radioBtnGroup.add(rdbtnNo);
+		radioBtnGroup.add(rdbtnYes);
+		
+		AddBookScreen.add(rdbtnNo);
+		AddBookScreen.add(rdbtnYes);
+		
+		JLabel lblRateThisBook = new JLabel("Rate this book? (1-5 stars)");
+		lblRateThisBook.setBounds(109, 401, 174, 16);
+		AddBookScreen.add(lblRateThisBook);
+		
+		JLabel lblComments = new JLabel("Comments?");
+		lblComments.setBounds(110, 442, 81, 16);
+		AddBookScreen.add(lblComments);
+		
+		final JTextArea commentsText = new JTextArea();
+		commentsText.setBounds(109, 470, 280, 141);
+		commentsText.setEnabled(false);
+		AddBookScreen.add(commentsText);
+		
+		SpinnerNumberModel spinnerModel = new SpinnerNumberModel(1,1,5,1);
+		final JSpinner bookRating = new JSpinner(spinnerModel);
+		bookRating.setBounds(295, 396, 33, 26);
+		bookRating.setEnabled(false);
+		AddBookScreen.add(bookRating);
+		
+		rdbtnNo.addActionListener(new ActionListener() {
+	        @Override
+	        public void actionPerformed(ActionEvent e) {
+	        	commentsText.setEnabled(false);
+	        	bookRating.setEnabled(false);
+	        }
+	    });
+
+	    rdbtnYes.addActionListener(new ActionListener() {
+	        @Override
+	        public void actionPerformed(ActionEvent e) {
+	        	commentsText.setEnabled(true);
+	        	bookRating.setEnabled(true);
+	        }
+	    });
+		
+		titleText = new JTextField();
+		titleText.setBounds(165, 170, 241, 26);
+		AddBookScreen.add(titleText);
+		titleText.setColumns(10);
+		
+		authorText = new JTextField();
+		authorText.setColumns(10);
+		authorText.setBounds(165, 209, 241, 26);
+		AddBookScreen.add(authorText);
+		
+		genreText = new JTextField();
+		genreText.setColumns(10);
+		genreText.setBounds(165, 254, 241, 26);
+		AddBookScreen.add(genreText);
+		
+		isbnText = new JTextField();
+		isbnText.setColumns(10);
+		isbnText.setBounds(165, 303, 241, 26);
+		AddBookScreen.add(isbnText);
+		
+		JButton addBookSubmit = new JButton("Submit");
+		addBookSubmit.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//Save a book
+				String title = titleText.getText();
+				String author = authorText.getText();
+				String genre = genreText.getText();
+				String isbn = isbnText.getText();
+				boolean read = false;
+				int rating = 0;
+				String comment = "";
+				if(rdbtnYes.isSelected()){
+					read = true;
+					rating = (int) bookRating.getValue();
+					comment = commentsText.getText();
+					auth.currentUser.addReadBook();
+				}
+				Book newBook = new Book(title, author, genre, isbn, read, rating, comment);
+				auth.currentUser.addBook(newBook);
+				
+				//Clear input
+				titleText.setText("");
+				authorText.setText("");
+				genreText.setText("");
+				isbnText.setText("");
+				rdbtnNo.setSelected(true);
+				bookRating.setValue(1);
+				commentsText.setText("");
+				commentsText.setEnabled(false);
+	        	bookRating.setEnabled(false);
+				
+				//move back to user page
+				AddBookScreen.setVisible(false);
+				UserScreen.setVisible(true);
+			}
+		});
+		addBookSubmit.setBounds(189, 642, 117, 29);
+		AddBookScreen.add(addBookSubmit);
+		
 		newUserButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String name = loginUsernameField.getText();
