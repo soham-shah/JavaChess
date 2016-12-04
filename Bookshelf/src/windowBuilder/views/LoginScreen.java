@@ -170,6 +170,7 @@ public class LoginScreen {
 			public void actionPerformed(ActionEvent e) {
 				UserScreen.setVisible(false);
 				Settings.setVisible(true);
+				settingsNumBooksRead.setText(String.valueOf(auth.currentUser.getBooksRead()));
 			}
 		});
 		userScreenSettingsButton.setBackground(Color.WHITE);
@@ -294,7 +295,6 @@ public class LoginScreen {
 		
 		settingsNumBooksRead = new JLabel();
 		settingsNumBooksRead.setBounds(320, 339, 61, 16);
-		settingsNumBooksRead.setText(String.valueOf(auth.currentUser.getBooksRead()));
 		Settings.add(settingsNumBooksRead);
 		newUserButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
