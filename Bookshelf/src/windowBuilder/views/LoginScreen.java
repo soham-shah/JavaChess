@@ -7,6 +7,8 @@ import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 import javax.swing.JTextField;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class LoginScreen {
 
@@ -70,6 +72,11 @@ public class LoginScreen {
 		textField_1.setColumns(10);
 		
 		JButton btnSubmit = new JButton("Submit");
+		btnSubmit.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
 		btnSubmit.setBounds(171, 240, 88, 16);
 		frame.getContentPane().add(btnSubmit);
 	}
