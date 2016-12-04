@@ -24,17 +24,6 @@ public class Authentication {
         return false;
     }
 
-    public boolean validateUser (String username, String password){
-        for(int i = 0; i < users.size(); i++){
-            if (users.get(i).getUsername() == username){
-                if (users.get(i).getPassword() == password){
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
-
     public void printUsers(){
         for(int i = 0; i < admins.size(); i++){
             System.out.println(admins.get(i).getUsername());
@@ -63,15 +52,23 @@ public class Authentication {
         }
     }
 
-    public boolean validateAdmin (String username, String password){
-        for(int i = 0; i < admins.size(); i++){
-            if (admins.get(i).getUsername() == username){
-                if (admins.get(i).getPassword() == password){
-                    return true;
+    public String validate (String username, String password){
+        for(int i = 0; i < users.size(); i++){
+            if (users.get(i).getUsername() == username){
+                if (users.get(i).getPassword() == password){
+                    return "user";
                 }
             }
         }
-        return false;
+        for(int i = 0; i < admins.size(); i++){
+            if (admins.get(i).getUsername() == username){
+                if (admins.get(i).getPassword() == password){
+                    return "admin";
+                }
+            }
+        }
+
+        return "none";
     }
 
 
