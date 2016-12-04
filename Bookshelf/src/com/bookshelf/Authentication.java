@@ -98,5 +98,19 @@ public class Authentication {
         return new Admin("null", "null");
     }
 
+    public Boolean changePassword(String username, String password){
+        for (int i = 0; i < users.size(); i++) {
+            if (users.get(i).getUsername().equals(username)) {
+                if (users.get(i).getPassword().equals(password)) {
+                    User tempUser = users.get(i);
+                    tempUser.setPassword(password);
+                    users.remove(i);
+                    users.add(tempUser);
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
 
 }
