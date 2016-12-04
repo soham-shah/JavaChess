@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Vector;
 
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 
 public class Authentication {
 
@@ -117,24 +118,18 @@ public class Authentication {
         return false;
     }
     
-    public DefaultTableModel getModel(){
-    	DefaultTableModel model = new DefaultTableModel();
-    	List<String> row = new ArrayList<String>();
+    public TableModel getModel(){
 
-    	row.add("Username");
-    	row.add("Password");
-    	row.add("Books Read");
-    	model.addRow(row.toArray());
-    	
-    	for (int i = 0; i< users.size(); i++){
-    		row = new ArrayList<String>();
-    		User temp = users.get(i);
-    		row.add(temp.getUsername());
-    		row.add(temp.getPassword());
-    		row.add(Integer.toString(temp.getBooksRead()));
-    		model.addRow(row.toArray());
-    	}
-    	return model;    	 
+        DefaultTableModel model = new DefaultTableModel(
+                new Object[][]{{}},
+                new Object[]{"Username", "Password", "# Books Read", "# Books in shelf"}
+        );
+        for (int i = 0; i< users.size(); i++){
+            User temp = users.get(i);
+            model.addRow(new Object[] {temp.getUsername(), temp.getPassword(), temp.getBooksRead()});
+        }
+
+        return model;
     }
 
 }

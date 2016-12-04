@@ -1,6 +1,6 @@
 package windowBuilder.views;
 
-import java.awt.EventQueue;
+import java.awt.*;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -19,21 +19,19 @@ import java.util.Arrays;
 import java.awt.event.ActionEvent;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
-import java.awt.CardLayout;
-import java.awt.Font;
 import javax.swing.JLayeredPane;
 import javax.swing.border.BevelBorder;
-import java.awt.Color;
 import javax.swing.JSeparator;
 import javax.swing.JTable;
 import javax.swing.JTextPane;
 import javax.swing.SpinnerNumberModel;
 import javax.swing.JScrollPane;
 import javax.swing.border.EtchedBorder;
-import javax.swing.border.LineBorder;
 import javax.swing.JRadioButton;
 import javax.swing.JTextArea;
 import javax.swing.JSpinner;
+import javax.swing.table.DefaultTableModel;
+import java.util.ArrayList;
 
 public class LoginScreen {
 
@@ -82,6 +80,7 @@ public class LoginScreen {
 	private JTextField authorText;
 	private JTextField genreText;
 	private JTextField isbnText;
+	private JScrollPane scrollPane;
 
 	/**
 	 * Launch the application.
@@ -229,10 +228,13 @@ public class LoginScreen {
 		separator_1.setBounds(65, 111, 378, 12);
 		AdminScreen.add(separator_1);
 		
-		usertable = new JTable();
-		usertable.setBounds(20, 131, 462, 586);
-		AdminScreen.add(usertable);
+		scrollPane = new JScrollPane();
+		scrollPane.setBounds(20, 131, 462, 586);
+		AdminScreen.add(scrollPane);
 		
+		usertable = new JTable();
+		scrollPane.setViewportView(usertable);
+
 		Settings = new JPanel();
 		Settings.setLayout(null);
 		frame.getContentPane().add(Settings, "name_194355372463");
@@ -494,14 +496,13 @@ public class LoginScreen {
 				}
 				//Go to the User view
 				else if(answer == 1){
-
 					LogIn.setVisible(false);
 					UserScreen.setVisible(true);
 				}
 				//go to the admin view
 				else{
-					LogIn.setVisible(false);
 					usertable.setModel(auth.getModel());
+					LogIn.setVisible(false);
 					AdminScreen.setVisible(true);
 				}
 			}
