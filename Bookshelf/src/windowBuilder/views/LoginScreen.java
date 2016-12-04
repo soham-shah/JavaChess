@@ -28,35 +28,37 @@ import javax.swing.JTextPane;
 
 public class LoginScreen {
 
+	private Authentication auth = new Authentication();
+	
 	private JFrame frame;
 	
 	private JTextField loginUsernameField;
 	private JPasswordField loginPasswordField;
+	private JTextField settingsUsernameField;
+	private JTextField settingsNewPasswordField;
 	
 	private JPanel LogIn;
 	private JPanel UserScreen;
 	private JPanel AdminScreen;
+	private JPanel Settings;
 	
 	private JLabel bookPic;
 	private JLabel loginUsernameLabel;
 	private JLabel loginPasswordLabel;
 	private JLabel userScreenTitle;
+	private JLabel bookshelfTitle;
+	private JLabel adminScreenTitle;
+	private JLabel settingsTitle;
 	
 	private JButton loginSubmitButton;
 	private JButton newUserButton;
+	private JButton adminScreenLogoutButton;
+	private JButton settingsLogoutButton;
 	
 	private JSeparator separator;
-	private JLabel bookshelfTitle;
-	private JLabel label;
-	private JButton btnLogOut_1;
 	private JSeparator separator_1;
-	private JPanel Settings;
-	private JLabel label_1;
-	private JButton button;
 	private JSeparator separator_2;
-	private JTextField textField_2;
-	private JTextField textField_3;
-	
+	private JTable table;
 
 	/**
 	 * Launch the application.
@@ -173,109 +175,119 @@ public class LoginScreen {
 		frame.getContentPane().add(AdminScreen, "name_13539955094575");
 		AdminScreen.setLayout(null);
 		
-		label = new JLabel("Welcome to Bookshelf.me");
-		label.setBounds(65, 47, 378, 73);
-		AdminScreen.add(label);
-		label.setHorizontalAlignment(SwingConstants.CENTER);
-		label.setFont(new Font("Lucida Grande", Font.PLAIN, 30));
+		adminScreenTitle = new JLabel("Welcome to Bookshelf.me");
+		adminScreenTitle.setBounds(65, 47, 378, 73);
+		AdminScreen.add(adminScreenTitle);
+		adminScreenTitle.setHorizontalAlignment(SwingConstants.CENTER);
+		adminScreenTitle.setFont(new Font("Lucida Grande", Font.PLAIN, 30));
 		
-		btnLogOut_1 = new JButton("Log out");
-		btnLogOut_1.addActionListener(new ActionListener() {
+		adminScreenLogoutButton = new JButton("Log out");
+		adminScreenLogoutButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				AdminScreen.setVisible(false);
 				LogIn.setVisible(true);
 			}
 		});
-		btnLogOut_1.setBounds(388, 6, 117, 29);
-		AdminScreen.add(btnLogOut_1);
+		adminScreenLogoutButton.setBounds(388, 6, 117, 29);
+		AdminScreen.add(adminScreenLogoutButton);
 		
 		separator_1 = new JSeparator();
 		separator_1.setBounds(65, 111, 378, 12);
 		AdminScreen.add(separator_1);
 		
+		table = new JTable();
+		table.setBackground(Color.WHITE);
+		table.setBounds(478, 156, -445, 563);
+		AdminScreen.add(table);
+		
 		Settings = new JPanel();
 		Settings.setLayout(null);
 		frame.getContentPane().add(Settings, "name_194355372463");
 		
-		label_1 = new JLabel("Welcome to Bookshelf.me");
-		label_1.setHorizontalAlignment(SwingConstants.CENTER);
-		label_1.setFont(new Font("Lucida Grande", Font.PLAIN, 30));
-		label_1.setBounds(65, 47, 378, 73);
-		Settings.add(label_1);
+		settingsTitle = new JLabel("Welcome to Bookshelf.me");
+		settingsTitle.setHorizontalAlignment(SwingConstants.CENTER);
+		settingsTitle.setFont(new Font("Lucida Grande", Font.PLAIN, 30));
+		settingsTitle.setBounds(65, 47, 378, 73);
+		Settings.add(settingsTitle);
 		
-		button = new JButton("Log out");
-		button.addActionListener(new ActionListener() {
+		settingsLogoutButton = new JButton("Log out");
+		settingsLogoutButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Settings.setVisible(false);
 				LogIn.setVisible(true);
 			}
 		});
-		button.setBounds(388, 6, 117, 29);
-		Settings.add(button);
+		settingsLogoutButton.setBounds(388, 6, 117, 29);
+		Settings.add(settingsLogoutButton);
 		
 		separator_2 = new JSeparator();
 		separator_2.setBounds(65, 111, 378, 12);
 		Settings.add(separator_2);
 		
-		JButton btnBack = new JButton("Back");
-		btnBack.addActionListener(new ActionListener() {
+		JButton settingsBackButton = new JButton("Back");
+		settingsBackButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Settings.setVisible(false);
 				UserScreen.setVisible(true);
 			}
 		});
-		btnBack.setBounds(0, 6, 117, 29);
-		Settings.add(btnBack);
+		settingsBackButton.setBounds(0, 6, 117, 29);
+		Settings.add(settingsBackButton);
 		
-		JLabel lblChangePassword = new JLabel("Change Password");
-		lblChangePassword.setFont(new Font("Lucida Grande", Font.PLAIN, 20));
-		lblChangePassword.setBounds(169, 132, 176, 16);
-		Settings.add(lblChangePassword);
+		JLabel changePasswordTitle = new JLabel("Change Password");
+		changePasswordTitle.setFont(new Font("Lucida Grande", Font.PLAIN, 20));
+		changePasswordTitle.setBounds(169, 132, 176, 16);
+		Settings.add(changePasswordTitle);
 		
-		JLabel lblUsername = new JLabel("Username");
-		lblUsername.setBounds(170, 175, 69, 16);
-		Settings.add(lblUsername);
+		JLabel settingsUsernameLabel = new JLabel("Username");
+		settingsUsernameLabel.setBounds(170, 175, 69, 16);
+		Settings.add(settingsUsernameLabel);
 		
-		JLabel lblNewPassword = new JLabel("New Password");
-		lblNewPassword.setBounds(143, 203, 96, 16);
-		Settings.add(lblNewPassword);
+		JLabel settingsNewPasswordTitle = new JLabel("New Password");
+		settingsNewPasswordTitle.setBounds(143, 203, 96, 16);
+		Settings.add(settingsNewPasswordTitle);
 		
-		textField_2 = new JTextField();
-		textField_2.setBounds(251, 170, 130, 26);
-		Settings.add(textField_2);
-		textField_2.setColumns(10);
+		settingsUsernameField = new JTextField();
+		settingsUsernameField.setBounds(251, 170, 130, 26);
+		Settings.add(settingsUsernameField);
+		settingsUsernameField.setColumns(10);
 		
-		textField_3 = new JTextField();
-		textField_3.setBounds(251, 198, 130, 26);
-		Settings.add(textField_3);
-		textField_3.setColumns(10);
+		settingsNewPasswordField = new JTextField();
+		settingsNewPasswordField.setBounds(251, 198, 130, 26);
+		Settings.add(settingsNewPasswordField);
+		settingsNewPasswordField.setColumns(10);
 		
-		JLabel lblYourStatistics = new JLabel("Your Statistics");
-		lblYourStatistics.setFont(new Font("Lucida Grande", Font.PLAIN, 20));
-		lblYourStatistics.setBounds(184, 297, 140, 16);
-		Settings.add(lblYourStatistics);
+		JLabel settingsStatsTitle = new JLabel("Your Statistics");
+		settingsStatsTitle.setFont(new Font("Lucida Grande", Font.PLAIN, 20));
+		settingsStatsTitle.setBounds(184, 297, 140, 16);
+		Settings.add(settingsStatsTitle);
 		
-		JButton btnSubmit_1 = new JButton("Submit");
-		btnSubmit_1.addActionListener(new ActionListener() {
+		JButton settingsChangePasswordButton = new JButton("Submit");
+		settingsChangePasswordButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String name = textField_2.getText();
-				String pass = textField_3.getText();
-
-				auth.changePassword(name, pass);
+				String name = settingsUsernameField.getText();
+				String pass = settingsNewPasswordField.getText();
+				
+				if(auth.changePassword(name, pass)){
+					JOptionPane.showMessageDialog(frame, "Password changed!");
+				}
+				else{
+					JOptionPane.showMessageDialog(frame, "User not found, try again");
+				}
+				
 			}
 		});
-		btnSubmit_1.setBounds(196, 232, 117, 29);
-		Settings.add(btnSubmit_1);
+		settingsChangePasswordButton.setBounds(196, 232, 117, 29);
+		Settings.add(settingsChangePasswordButton);
 		
-		JLabel lblNumberOfBooks = new JLabel("Number of Books Read");
-		lblNumberOfBooks.setBounds(143, 339, 151, 16);
-		Settings.add(lblNumberOfBooks);
+		JLabel settingsBooksReadLabel = new JLabel("Number of Books Read");
+		settingsBooksReadLabel.setBounds(143, 339, 151, 16);
+		Settings.add(settingsBooksReadLabel);
 		newUserButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String name = loginUsernameField.getText();
 				char[] p = loginPasswordField.getPassword();
 				String pass = new String(p);
-				Authentication auth = new Authentication();
 
 				auth.addUser(name, pass);
 			}
@@ -285,7 +297,6 @@ public class LoginScreen {
 				String name = loginUsernameField.getText();
 				char[] p = loginPasswordField.getPassword();
 				String pass = new String(p);
-				Authentication auth = new Authentication();
 				int answer = auth.validate(name, pass);
 
 				if(answer == 0){
