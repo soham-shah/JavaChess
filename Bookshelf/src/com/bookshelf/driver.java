@@ -10,10 +10,11 @@ public class driver {
 		
 		Authentication auth = new Authentication();
 
-		auth.addUser(new User("Bill", "pass"));
-		auth.addUser(new User("Bilbo", "pass1"));
+		System.out.println(auth.validate("User", "User"));
+		auth.addUser("Bilbo", "pass1");
+		System.out.println(auth.validate("Bilbo", "pass1"));
 		auth.printUsers();
-		auth.addUser( new User("jill", "jill2"));
+		auth.addUser("jill", "jill2");
 		auth.printUsers();
 		auth.removeUser("jill", "jill2");
 		auth.printUsers();
