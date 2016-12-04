@@ -396,7 +396,7 @@ public class LoginScreen {
 		
 		SpinnerNumberModel spinnerModel = new SpinnerNumberModel(1,1,5,1);
 		final JSpinner bookRating = new JSpinner(spinnerModel);
-		bookRating.setBounds(295, 396, 33, 26);
+		bookRating.setBounds(295, 396, 52, 26);
 		bookRating.setEnabled(false);
 		AddBookScreen.add(bookRating);
 		

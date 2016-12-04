@@ -11,7 +11,7 @@ public class Authentication {
 
     private static ArrayList<User> users = new ArrayList<User>();
     private static ArrayList<Admin> admins = new ArrayList<Admin>();
-    public User currentUser;
+    public static User currentUser;
 
     public Authentication(){
     	this.addUser("User", "User");
