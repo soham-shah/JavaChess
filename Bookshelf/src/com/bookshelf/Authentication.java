@@ -126,7 +126,7 @@ public class Authentication {
         );
         for (int i = 0; i< users.size(); i++){
             User temp = users.get(i);
-            model.addRow(new Object[] {temp.getUsername(), temp.getPassword(), temp.getBooksRead()});
+            model.addRow(new Object[] {temp.getUsername(), temp.getPassword(), temp.getBooksRead(), temp.bookCount()});
         }
 
         return model;
