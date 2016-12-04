@@ -32,7 +32,8 @@ public class driver {
 //
 //		session.getTransaction().commit();
 //		session.close();
-//		sessionFactory.close();		
+//		sessionFactory.close();
+		//Sam
 		
 	}
 }
