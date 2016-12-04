@@ -25,6 +25,7 @@ import java.awt.Color;
 import javax.swing.JSeparator;
 import javax.swing.JTable;
 import javax.swing.JTextPane;
+import javax.swing.JScrollPane;
 
 public class LoginScreen {
 
@@ -59,6 +60,7 @@ public class LoginScreen {
 	private JSeparator separator_1;
 	private JSeparator separator_2;
 	private JTable table;
+	private JScrollPane scrollPane;
 
 	/**
 	 * Launch the application.
@@ -195,10 +197,13 @@ public class LoginScreen {
 		separator_1.setBounds(65, 111, 378, 12);
 		AdminScreen.add(separator_1);
 		
+		scrollPane = new JScrollPane();
+		scrollPane.setBounds(478, 156, -445, 563);
+		AdminScreen.add(scrollPane);
+		
 		table = new JTable();
+		scrollPane.setViewportView(table);
 		table.setBackground(Color.WHITE);
-		table.setBounds(478, 156, -445, 563);
-		AdminScreen.add(table);
 		
 		Settings = new JPanel();
 		Settings.setLayout(null);
