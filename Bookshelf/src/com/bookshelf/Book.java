@@ -34,9 +34,6 @@ public class Book implements Comparable <Book>{
 		this.isbn = isbn;
 	}
 
-	public void addRating(int rating){
-		this.rating = rating;
-	}
 	public Boolean getRead() {
 		return read;
 	}
