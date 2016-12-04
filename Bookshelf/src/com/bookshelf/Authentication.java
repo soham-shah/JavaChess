@@ -76,6 +76,27 @@ public class Authentication {
         return 0;
     }
 
+    public User getUser(String username, String password){
+        for(int i = 0; i < users.size(); i++){
+            if (users.get(i).getUsername().equals(username)){
+                if (users.get(i).getPassword().equals(password)){
+                    return users.get(i);
+                }
+            }
+        }
+        return new User("null", "null");
+    }
+
+    public Admin getAdmin(String username, String password) {
+        for (int i = 0; i < admins.size(); i++) {
+            if (admins.get(i).getUsername().equals(username)) {
+                if (admins.get(i).getPassword().equals(password)) {
+                    return admins.get(i);
+                }
+            }
+        }
+        return new Admin("null", "null");
+    }
 
 
 }
