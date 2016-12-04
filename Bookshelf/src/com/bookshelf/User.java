@@ -21,5 +21,9 @@ public class User extends Person{
 	private void changePassword(String newPassword){
 		this.password = newPassword;
 	}
+
+	public int bookCount(){
+		return bookshelf.size();
+	}
 	
 }
