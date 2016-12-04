@@ -19,7 +19,6 @@ public class driver {
 		auth.removeUser("jill", "jill2");
 		auth.printUsers();
 
-
 //		create a database connection and store these files in the db. 
 //		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
 //		Session session = sessionFactory.openSession();

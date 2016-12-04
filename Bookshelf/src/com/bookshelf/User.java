@@ -10,8 +10,8 @@ public class User extends Person{
 		super.password = password;
 	}
 	
-	public void addBook(String title){
-		
+	public void addBook(Book newBook){
+			bookshelf.add(newBook);
 	}
 	
 	public void deleteBook(String title){
