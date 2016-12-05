@@ -14,8 +14,8 @@ public class User extends Person{
 			bookshelf.add(newBook);
 	}
 	
-	public void deleteBook(String title){
-		
+	public void deleteBook(int index){
+		bookshelf.remove(index-1);
 	}
 	
 	private void changePassword(String newPassword){

@@ -83,6 +83,8 @@ public class LoginScreen {
 	private JScrollPane scrollPane;
 	private JTable booktable;
 	private JScrollPane scrollPane_1;
+	private JButton btnDeleteBook;
+	private JButton btnEditBook;
 
 	/**
 	 * Launch the application.
@@ -212,6 +214,21 @@ public class LoginScreen {
 		
 		booktable = new JTable();
 		scrollPane_1.setViewportView(booktable);
+		
+		btnDeleteBook = new JButton("Delete Book");
+		btnDeleteBook.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				int rowIndex = booktable.getSelectedRow();
+				auth.currentUser.deleteBook(rowIndex);
+				booktable.setModel(auth.getBookModel());
+			}
+		});
+		btnDeleteBook.setBounds(38, 132, 117, 29);
+		UserScreen.add(btnDeleteBook);
+		
+		btnEditBook = new JButton("Edit Book");
+		btnEditBook.setBounds(360, 132, 117, 29);
+		UserScreen.add(btnEditBook);
 		
 		AdminScreen = new JPanel();
 		frame.getContentPane().add(AdminScreen, "name_13539955094575");
