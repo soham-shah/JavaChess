@@ -479,7 +479,6 @@ public class LoginScreen {
 					read = true;
 					rating = (int) bookRating.getValue();
 					comment = commentsText.getText();
-					auth.currentUser.addReadBook();
 				}
 				Book newBook = new Book(title, author, genre, isbn, read, rating, comment);
 				auth.currentUser.addBook(newBook);
@@ -662,7 +661,6 @@ public class LoginScreen {
 					read = true;
 					rating = (int) editRatingText.getValue();
 					comment = editCommentText.getText();
-					auth.currentUser.addReadBook();
 				}
 				Book newBook = new Book(title, author, genre, isbn, read, rating, comment);
 				auth.currentUser.addBook(newBook);

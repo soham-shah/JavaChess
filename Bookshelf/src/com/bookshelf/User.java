@@ -2,7 +2,6 @@ package com.bookshelf;
 import java.util.*;
 
 public class User extends Person{
-	private int booksRead = 0;
 	public List<Book> bookshelf = new ArrayList<Book>();
 	
 	public User(String username, String password){
@@ -16,7 +15,7 @@ public class User extends Person{
 	
 	public void deleteBook(int index){
 		bookshelf.remove(index-1);
-		booksRead = booksRead - 1;
+		
 	}
 	
 	private void changePassword(String newPassword){
@@ -28,11 +27,12 @@ public class User extends Person{
 	}
 	
 	public int getBooksRead(){
-		return booksRead;
+		int numRead = 0;
+		for(int i=0; i<bookshelf.size();i++){
+			if(bookshelf.get(i).getRead()){
+				numRead = numRead + 1;
+			}
+		}
+		return numRead;
 	}
-	
-	public void addReadBook(){
-		booksRead = booksRead+1;
-	}
-	
 }
