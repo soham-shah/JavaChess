@@ -35,7 +35,8 @@ import java.util.ArrayList;
 
 public class LoginScreen {
 
-	private Authentication auth = new Authentication();
+	Authentication auth = Authentication.getInstance( );
+	/*private Authentication auth = new Authentication();*/
 	
 	private JFrame frame;
 	

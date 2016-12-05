@@ -9,6 +9,17 @@ import javax.swing.table.TableModel;
 
 public class Authentication {
 
+	private static Authentication singleton = new Authentication( );
+	
+	/* A private Constructor prevents any other
+	    * class from instantiating.
+	*/
+	private Authentication () {}
+	
+	public static Authentication getInstance( ) {
+	      return singleton;
+	   }
+	
     private static ArrayList<User> users = new ArrayList<User>();
     private static ArrayList<Admin> admins = new ArrayList<Admin>();
     public static User currentUser;
