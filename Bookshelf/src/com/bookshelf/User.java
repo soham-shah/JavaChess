@@ -16,6 +16,7 @@ public class User extends Person{
 	
 	public void deleteBook(int index){
 		bookshelf.remove(index-1);
+		booksRead = booksRead - 1;
 	}
 	
 	private void changePassword(String newPassword){
