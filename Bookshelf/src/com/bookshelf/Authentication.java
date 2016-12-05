@@ -132,4 +132,16 @@ public class Authentication {
         return model;
     }
 
+    public TableModel getBookModel(){
+        DefaultTableModel model = new DefaultTableModel(
+                new Object[][]{{}},
+                new Object[]{"Title", "Author", "Genre", "Read", "Rating", "Comments"}
+        );
+        for (int i = 0; i< currentUser.bookshelf.size(); i++){
+            Book temp = currentUser.bookshelf.get(i);
+            model.addRow(new Object[] {temp.getTitle(), temp.getAuthor(), temp.getGenre(), temp.getRead(), temp.getRating(), temp.getComment()});
+        }
+        return model;
+    }
+
 }

@@ -72,6 +72,9 @@ public class Book implements Comparable <Book>{
 	public void setIsbn(String isbn) {
 		this.isbn = isbn;
 	}
+	public String getComment(){
+		return comment;
+	}
     public int compareTo(Book other){
     	return title.compareTo(other.getTitle());
 	}

@@ -81,6 +81,8 @@ public class LoginScreen {
 	private JTextField genreText;
 	private JTextField isbnText;
 	private JScrollPane scrollPane;
+	private JTable booktable;
+	private JScrollPane scrollPane_1;
 
 	/**
 	 * Launch the application.
@@ -203,6 +205,13 @@ public class LoginScreen {
 		});
 		addNewBookButton.setBounds(191, 132, 132, 29);
 		UserScreen.add(addNewBookButton);
+		
+		scrollPane_1 = new JScrollPane();
+		scrollPane_1.setBounds(19, 173, 472, 549);
+		UserScreen.add(scrollPane_1);
+		
+		booktable = new JTable();
+		scrollPane_1.setViewportView(booktable);
 		
 		AdminScreen = new JPanel();
 		frame.getContentPane().add(AdminScreen, "name_13539955094575");
@@ -468,6 +477,7 @@ public class LoginScreen {
 	        	bookRating.setEnabled(false);
 				
 				//move back to user page
+				booktable.setModel(auth.getBookModel());
 				AddBookScreen.setVisible(false);
 				UserScreen.setVisible(true);
 			}
@@ -496,6 +506,7 @@ public class LoginScreen {
 				}
 				//Go to the User view
 				else if(answer == 1){
+					booktable.setModel(auth.getBookModel());
 					LogIn.setVisible(false);
 					UserScreen.setVisible(true);
 				}
