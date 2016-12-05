@@ -9,25 +9,31 @@ import javax.swing.table.TableModel;
 
 public class Authentication {
 
-	private static Authentication singleton = new Authentication( );
+	private static Authentication singleton = null;
 	
 	/* A private Constructor prevents any other
-	    * class from instantiating.
-	*/
-	private Authentication () {}
+	    * class from instantiating.*/
+	
+	protected Authentication() {
+		this.addUser("User", "User");
+    	this.addAdmin("Admin", "Admin");
+	}
 	
 	public static Authentication getInstance( ) {
-	      return singleton;
+	    if (singleton ==null){
+	    	singleton = new Authentication();
+	    }
+		return singleton;
 	   }
 	
     private static ArrayList<User> users = new ArrayList<User>();
     private static ArrayList<Admin> admins = new ArrayList<Admin>();
     public static User currentUser;
 
-    public Authentication(){
+    /*public Authentication(){
     	this.addUser("User", "User");
     	this.addAdmin("Admin", "Admin");
-    }
+    }*/
     
     public void addUser(String username, String password){
         users.add(new User(username, password));

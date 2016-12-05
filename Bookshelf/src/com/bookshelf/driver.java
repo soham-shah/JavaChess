@@ -1,14 +1,15 @@
 package com.bookshelf;
 
 import java.util.*;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
 public class driver {
 
 	public static void main(String[] args) {
-		
-		Authentication auth = new Authentication();
+		Authentication auth = Authentication.getInstance( );
+		/*Authentication auth = new Authentication();*/
 
 		System.out.println(auth.validate("User", "User"));
 		auth.addUser("Bilbo", "pass1");
