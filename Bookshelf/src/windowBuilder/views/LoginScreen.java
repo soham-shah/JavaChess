@@ -32,6 +32,7 @@ import javax.swing.JTextArea;
 import javax.swing.JSpinner;
 import javax.swing.table.DefaultTableModel;
 import java.util.ArrayList;
+import javax.swing.SpinnerModel;
 
 public class LoginScreen {
 
@@ -86,6 +87,10 @@ public class LoginScreen {
 	private JScrollPane scrollPane_1;
 	private JButton btnDeleteBook;
 	private JButton btnEditBook;
+	private JTextField editTitleText;
+	private JTextField editAuthorText;
+	private JTextField editGenreText;
+	private JTextField editISBNText;
 
 	/**
 	 * Launch the application.
@@ -226,17 +231,6 @@ public class LoginScreen {
 		});
 		btnDeleteBook.setBounds(38, 132, 117, 29);
 		UserScreen.add(btnDeleteBook);
-		
-		btnEditBook = new JButton("Edit Book");
-		btnEditBook.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				int rowIndex = booktable.getSelectedRow();
-//				auth.currentUser.updateBook(rowIndex);
-				booktable.setModel(auth.getBookModel());
-			}
-		});
-		btnEditBook.setBounds(360, 132, 117, 29);
-		UserScreen.add(btnEditBook);
 		
 		AdminScreen = new JPanel();
 		frame.getContentPane().add(AdminScreen, "name_13539955094575");
@@ -510,6 +504,178 @@ public class LoginScreen {
 		addBookSubmit.setBounds(189, 642, 117, 29);
 		AddBookScreen.add(addBookSubmit);
 		
+		final JPanel EditBookScreen = new JPanel();
+		EditBookScreen.setLayout(null);
+		frame.getContentPane().add(EditBookScreen, "name_14329025544932");
+		
+		JButton button = new JButton("Back");
+		button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				EditBookScreen.setVisible(false);
+				UserScreen.setVisible(true);
+			}
+		});
+		button.setBounds(6, 6, 75, 29);
+		EditBookScreen.add(button);
+		
+		JLabel lblLetsEditA = new JLabel("Lets edit a book in your bookshelf!");
+		lblLetsEditA.setFont(new Font("Lucida Grande", Font.PLAIN, 25));
+		lblLetsEditA.setBounds(40, 49, 438, 61);
+		EditBookScreen.add(lblLetsEditA);
+		
+		JLabel label_1 = new JLabel("Fill in as much information as you can");
+		label_1.setFont(new Font("Lucida Grande", Font.PLAIN, 20));
+		label_1.setBounds(66, 110, 373, 29);
+		EditBookScreen.add(label_1);
+		
+		JLabel editTitle = new JLabel("Title");
+		editTitle.setBounds(92, 175, 61, 16);
+		EditBookScreen.add(editTitle);
+		
+		JLabel editAuthor = new JLabel("Author");
+		editAuthor.setBounds(92, 214, 61, 16);
+		EditBookScreen.add(editAuthor);
+		
+		JLabel editGenre = new JLabel("Genre");
+		editGenre.setBounds(92, 259, 61, 16);
+		EditBookScreen.add(editGenre);
+		
+		JLabel editISBN = new JLabel("ISBN");
+		editISBN.setBounds(92, 308, 61, 16);
+		EditBookScreen.add(editISBN);
+		
+		JLabel readLabel = new JLabel("Have you read this book?");
+		readLabel.setBounds(92, 360, 167, 16);
+		EditBookScreen.add(readLabel);
+		
+		final JRadioButton radioButton = new JRadioButton("No");
+		radioButton.setSelected(true);
+		radioButton.setBounds(268, 356, 67, 23);
+		
+		final JRadioButton radioButton_1 = new JRadioButton("Yes");
+		radioButton_1.setBounds(329, 356, 61, 23);
+		
+		ButtonGroup radioBtnGroup1 = new ButtonGroup();
+		radioBtnGroup1.add(radioButton);
+		radioBtnGroup1.add(radioButton_1);
+		
+		EditBookScreen.add(radioButton);
+		EditBookScreen.add(radioButton_1);
+		
+		JLabel rateLabel = new JLabel("Rate this book? (1-5 stars)");
+		rateLabel.setBounds(109, 401, 174, 16);
+		EditBookScreen.add(rateLabel);
+		
+		JLabel commentLabel = new JLabel("Comments?");
+		commentLabel.setBounds(110, 442, 81, 16);
+		EditBookScreen.add(commentLabel);
+		
+		final JTextArea editCommentText = new JTextArea();
+		editCommentText.setEnabled(false);
+		editCommentText.setBounds(109, 470, 280, 141);
+		EditBookScreen.add(editCommentText);
+		
+		final JSpinner editRatingText = new JSpinner(spinnerModel);
+		editRatingText.setEnabled(false);
+		editRatingText.setBounds(295, 396, 52, 26);
+		EditBookScreen.add(editRatingText);
+		
+		editTitleText = new JTextField();
+		editTitleText.setColumns(10);
+		editTitleText.setBounds(165, 170, 241, 26);
+		EditBookScreen.add(editTitleText);
+		
+		editAuthorText = new JTextField();
+		editAuthorText.setColumns(10);
+		editAuthorText.setBounds(165, 209, 241, 26);
+		EditBookScreen.add(editAuthorText);
+		
+		editGenreText = new JTextField();
+		editGenreText.setColumns(10);
+		editGenreText.setBounds(165, 254, 241, 26);
+		EditBookScreen.add(editGenreText);
+		
+		editISBNText = new JTextField();
+		editISBNText.setColumns(10);
+		editISBNText.setBounds(165, 303, 241, 26);
+		EditBookScreen.add(editISBNText);
+		
+		radioButton.addActionListener(new ActionListener() {
+	        @Override
+	        public void actionPerformed(ActionEvent e) {
+	        	editCommentText.setEnabled(false);
+	        	editRatingText.setEnabled(false);
+	        }
+	    });
+
+	    radioButton_1.addActionListener(new ActionListener() {
+	        @Override
+	        public void actionPerformed(ActionEvent e) {
+	        	editCommentText.setEnabled(true);
+	        	editRatingText.setEnabled(true);
+	        }
+	    });
+	    
+		btnEditBook = new JButton("Edit Book");
+		btnEditBook.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				int rowIndex = booktable.getSelectedRow();
+				if(rowIndex <= 0){
+					JOptionPane.showMessageDialog(frame, "Select an existing Book");
+				}
+				else{
+					Book temp = auth.currentUser.bookshelf.get(rowIndex-1);
+					editTitleText.setText(temp.getTitle());
+					editAuthorText.setText(temp.getAuthor());
+					editGenreText.setText(temp.getGenre());
+					editISBNText.setText(temp.getIsbn());
+					if(temp.getRead()){
+						editRatingText.setValue(temp.getRating());
+						editCommentText.setText(temp.getComment());
+						radioButton_1.setSelected(true);
+						editRatingText.setEnabled(true);
+						editCommentText.setEnabled(true);
+					}
+					
+					UserScreen.setVisible(false);
+					EditBookScreen.setVisible(true);
+					
+					auth.currentUser.deleteBook(rowIndex);
+				}
+			}
+		});
+		btnEditBook.setBounds(360, 132, 117, 29);
+		UserScreen.add(btnEditBook);
+		
+		JButton editBookSubmit = new JButton("Submit");
+		editBookSubmit.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//Save a book
+				String title = editTitleText.getText();
+				String author = editAuthorText.getText();
+				String genre = editGenreText.getText();
+				String isbn = editISBNText.getText();
+				boolean read = false;
+				int rating = 0;
+				String comment = "";
+				if(radioButton_1.isSelected()){
+					read = true;
+					rating = (int) editRatingText.getValue();
+					comment = editCommentText.getText();
+					auth.currentUser.addReadBook();
+				}
+				Book newBook = new Book(title, author, genre, isbn, read, rating, comment);
+				auth.currentUser.addBook(newBook);
+				
+				//move back to user page
+				booktable.setModel(auth.getBookModel());
+				EditBookScreen.setVisible(false);
+				UserScreen.setVisible(true);
+			}
+		});
+		editBookSubmit.setBounds(189, 642, 117, 29);
+		EditBookScreen.add(editBookSubmit);
+		
 		newUserButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String name = loginUsernameField.getText();
@@ -519,6 +685,7 @@ public class LoginScreen {
 				auth.addUser(name, pass);
 			}
 		});
+		
 		loginSubmitButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String name = loginUsernameField.getText();
