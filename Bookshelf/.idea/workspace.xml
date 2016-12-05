@@ -22,25 +22,24 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="User.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="User.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/bookshelf/User.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.41095892">
-              <caret line="16" column="38" selection-start-line="16" selection-start-column="38" selection-end-line="16" selection-end-column="38" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="18" column="5" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
               <folding>
+                <element signature="e#375#376#0" expanded="true" />
                 <element signature="e#407#408#0" expanded="true" />
-                <element signature="e#519#520#0" expanded="true" />
-                <element signature="e#549#550#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LoginScreen.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="LoginScreen.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/windowBuilder/views/LoginScreen.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.3333335">
-              <caret line="221" column="54" selection-start-line="221" selection-start-column="54" selection-end-line="221" selection-end-column="54" />
+            <state vertical-scroll-proportion="0.42561984">
+              <caret line="231" column="58" selection-start-line="231" selection-start-column="58" selection-end-line="231" selection-end-column="58" />
               <folding>
                 <element signature="e#2525#2724#0" expanded="true" />
                 <element signature="e#2723#2724#0" expanded="true" />
@@ -54,6 +53,12 @@
                 <element signature="e#6225#6226#0" expanded="true" />
                 <element signature="e#6587#6801#0" expanded="true" />
                 <element signature="e#6800#6801#0" expanded="true" />
+                <element signature="e#6959#7175#0" expanded="true" />
+                <element signature="e#7174#7175#0" expanded="true" />
+                <element signature="e#7766#7908#0" expanded="true" />
+                <element signature="e#7907#7908#0" expanded="true" />
+                <element signature="e#8780#8919#0" expanded="true" />
+                <element signature="e#8918#8919#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -93,8 +98,8 @@
         <option value="$PROJECT_DIR$/src/com/bookshelf/Authentication.java" />
         <option value="$PROJECT_DIR$/src/com/bookshelf/driver.java" />
         <option value="$PROJECT_DIR$/src/com/bookshelf/Book.java" />
-        <option value="$PROJECT_DIR$/src/windowBuilder/views/LoginScreen.java" />
         <option value="$PROJECT_DIR$/src/com/bookshelf/User.java" />
+        <option value="$PROJECT_DIR$/src/windowBuilder/views/LoginScreen.java" />
       </list>
     </option>
   </component>
@@ -655,9 +660,8 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
+            <element signature="e#375#376#0" expanded="true" />
             <element signature="e#407#408#0" expanded="true" />
-            <element signature="e#519#520#0" expanded="true" />
-            <element signature="e#549#550#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -700,9 +704,8 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
+            <element signature="e#375#376#0" expanded="true" />
             <element signature="e#407#408#0" expanded="true" />
-            <element signature="e#519#520#0" expanded="true" />
-            <element signature="e#549#550#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -770,9 +773,8 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="10" column="5" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
           <folding>
+            <element signature="e#375#376#0" expanded="true" />
             <element signature="e#407#408#0" expanded="true" />
-            <element signature="e#519#520#0" expanded="true" />
-            <element signature="e#549#550#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -876,10 +878,21 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/bookshelf/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="18" column="5" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
+          <folding>
+            <element signature="e#375#376#0" expanded="true" />
+            <element signature="e#407#408#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/windowBuilder/views/LoginScreen.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.3333335">
-          <caret line="221" column="54" selection-start-line="221" selection-start-column="54" selection-end-line="221" selection-end-column="54" />
+        <state vertical-scroll-proportion="0.42561984">
+          <caret line="231" column="58" selection-start-line="231" selection-start-column="58" selection-end-line="231" selection-end-column="58" />
           <folding>
             <element signature="e#2525#2724#0" expanded="true" />
             <element signature="e#2723#2724#0" expanded="true" />
@@ -893,18 +906,12 @@
             <element signature="e#6225#6226#0" expanded="true" />
             <element signature="e#6587#6801#0" expanded="true" />
             <element signature="e#6800#6801#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/bookshelf/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.41095892">
-          <caret line="16" column="38" selection-start-line="16" selection-start-column="38" selection-end-line="16" selection-end-column="38" />
-          <folding>
-            <element signature="e#407#408#0" expanded="true" />
-            <element signature="e#519#520#0" expanded="true" />
-            <element signature="e#549#550#0" expanded="true" />
+            <element signature="e#6959#7175#0" expanded="true" />
+            <element signature="e#7174#7175#0" expanded="true" />
+            <element signature="e#7766#7908#0" expanded="true" />
+            <element signature="e#7907#7908#0" expanded="true" />
+            <element signature="e#8780#8919#0" expanded="true" />
+            <element signature="e#8918#8919#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -227,6 +227,13 @@ public class LoginScreen {
 		UserScreen.add(btnDeleteBook);
 		
 		btnEditBook = new JButton("Edit Book");
+		btnEditBook.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				int rowIndex = booktable.getSelectedRow();
+//				auth.currentUser.updateBook(rowIndex);
+				booktable.setModel(auth.getBookModel());
+			}
+		});
 		btnEditBook.setBounds(360, 132, 117, 29);
 		UserScreen.add(btnEditBook);
 		
