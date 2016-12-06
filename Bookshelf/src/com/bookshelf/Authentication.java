@@ -33,7 +33,6 @@ public class Authentication {
     }
 
     public boolean removeUser(String username, String password){
-        int location;
         for(int i = 0; i < users.size(); i++){
             if (users.get(i).getUsername() == username){
                 if (users.get(i).getPassword() == password){
@@ -56,7 +55,6 @@ public class Authentication {
     }
 
     public boolean removeAdmin(String username, String password){
-        int location;
         for(int i = 0; i < admins.size(); i++){
             if (admins.get(i).getUsername() == username){
                 if (admins.get(i).getPassword() == password)
