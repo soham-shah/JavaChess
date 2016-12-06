@@ -15,24 +15,16 @@ import com.bookshelf.Book;
 
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
-import java.util.Arrays;
 import java.awt.event.ActionEvent;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
-import javax.swing.JLayeredPane;
-import javax.swing.border.BevelBorder;
 import javax.swing.JSeparator;
 import javax.swing.JTable;
-import javax.swing.JTextPane;
 import javax.swing.SpinnerNumberModel;
 import javax.swing.JScrollPane;
-import javax.swing.border.EtchedBorder;
 import javax.swing.JRadioButton;
 import javax.swing.JTextArea;
 import javax.swing.JSpinner;
-import javax.swing.table.DefaultTableModel;
-import java.util.ArrayList;
-import javax.swing.SpinnerModel;
 
 public class LoginScreen {
 

@@ -1,8 +1,6 @@
 package com.bookshelf;
 
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Vector;
 
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
@@ -10,6 +8,9 @@ import javax.swing.table.TableModel;
 public class Authentication {
 
 	private static Authentication singleton = null;
+	private static ArrayList<User> users = new ArrayList<User>();
+    private static ArrayList<Admin> admins = new ArrayList<Admin>();
+    public static User currentUser;
 	
 	/* A private Constructor prevents any other
 	    * class from instantiating.*/
@@ -26,14 +27,6 @@ public class Authentication {
 		return singleton;
 	   }
 	
-    private static ArrayList<User> users = new ArrayList<User>();
-    private static ArrayList<Admin> admins = new ArrayList<Admin>();
-    public static User currentUser;
-
-    /*public Authentication(){
-    	this.addUser("User", "User");
-    	this.addAdmin("Admin", "Admin");
-    }*/
     
     public void addUser(String username, String password){
         users.add(new User(username, password));
