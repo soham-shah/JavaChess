@@ -26,7 +26,6 @@ public class Authentication {
 	    }
 		return singleton;
 	   }
-	
     
     public void addUser(String username, String password){
         users.add(new User(username, password));
@@ -44,12 +43,6 @@ public class Authentication {
         return false;
     }
 
-    public void printUsers(){
-        for(int i = 0; i < users.size(); i++){
-            System.out.println(users.get(i).getUsername());
-        }
-    }
-
     public void addAdmin(String username, String password){
         admins.add(new Admin(username, password));
     }
@@ -63,12 +56,6 @@ public class Authentication {
             }
         }
         return false;
-    }
-
-    public void printAdmins(){
-        for(int i = 0; i < admins.size(); i++){
-            System.out.println(admins.get(i).getUsername());
-        }
     }
 
     public int validate (String username, String password){

@@ -5,8 +5,4 @@ public class Admin extends Person{
 		this.username = username;
 		this.password = password;
 	}
-	
-	public void displayUsers(){
-		
-	}
 }
